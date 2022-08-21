@@ -25,7 +25,7 @@
         <div id="Grid"></div>        
 
 <script >
-    ej.grids.Grid.Inject(ej.grids.Group, ej.grids.Sort, ej.grids.Filter);
+    ej.grids.Grid.Inject(ej.grids.Group, ej.grids.Sort, ej.grids.Filter, ej.grids.Toolbar, ej.grids.Edit);
     
     var data = new ej.data.DataManager({
     url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders/',
@@ -40,6 +40,8 @@
     filterSettings: { type:'Excel' },
     allowSorting: true,
     allowGrouping: true,
+    editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true },
+    toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel'],
     columns: [
             { field: 'OrderID', headerText: 'Order ID', textAlign: 'Right', width: 120, type: 'number' },
             { field: 'CustomerID', width: 140, headerText: 'Customer ID', type: 'string' },
