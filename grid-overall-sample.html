@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script> 
-    <script src="ej2.min.js"></script>
     
+    <script src="ej2.min.js"></script>
     <link href="https://cdn.syncfusion.com/ej2/20.2.44/material.css" rel="stylesheet" />
     
     <style>
@@ -25,7 +25,7 @@
         <div id="Grid"></div>        
 
 <script >
-    ej.grids.Grid.Inject(ej.grids.Group, ej.grids.Sort, ej.grids.Filter, ej.grids.Toolbar, ej.grids.Edit);
+    ej.grids.Grid.Inject(ej.grids.Group, ej.grids.Sort, ej.grids.Filter);
     
     var data = new ej.data.DataManager({
     url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders/',
@@ -40,8 +40,6 @@
     filterSettings: { type:'Excel' },
     allowSorting: true,
     allowGrouping: true,
-    editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true },
-    toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel'],
     columns: [
             { field: 'OrderID', headerText: 'Order ID', textAlign: 'Right', width: 120, type: 'number' },
             { field: 'CustomerID', width: 140, headerText: 'Customer ID', type: 'string' },
