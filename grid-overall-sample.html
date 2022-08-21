@@ -9,7 +9,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script> 
     <script src="ej2.min.js"></script>
-    <script src="data.js" type="text/javascript"></script>
+    
     <link href="https://cdn.syncfusion.com/ej2/20.2.44/material.css" rel="stylesheet" />
 </head>
 <body>
@@ -17,14 +17,19 @@
 
 <script >
 
+    var data = new ej.data.DataManager({
+    url: 'https://services.odata.org/V4/Northwind/Northwind.svc/Orders/',
+    adaptor: new ej.data.ODataV4Adaptor()
+    });
+    
     var grid = new ej.grids.Grid({
     dataSource: data.slice(0, 20),
     height: 400,
     columns: [
-            { field: 'OrderID', isPrimaryKey: true, headerText: 'Order ID', width: 150 },
-            { field: 'CustomerID', headerText: 'CustomerID', width: 150 },
-            { field: 'EmployeeID', headerText: 'Employee ID' , width: 150},
-            { field: "ShipCity", headerText: "Ship City", width: 250 },
+            { field: 'OrderID', headerText: 'Order ID', textAlign: 'Right', width: 120, type: 'number' },
+            { field: 'CustomerID', width: 140, headerText: 'Customer ID', type: 'string' },
+            { field: 'Freight', headerText: 'Freight', textAlign: 'Right', width: 120, format: 'C' },
+            { field: 'OrderDate', headerText: 'Order Date', width: 140, format: 'yMd' }
     ],
 });
 grid.appendTo('#Grid');
