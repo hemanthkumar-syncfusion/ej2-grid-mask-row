@@ -16,14 +16,15 @@
         <div id="Grid"></div>        
 
 <script >
-
+    ej.grids.Grid.Inject(ej.grids.Toolbar, ej.grids.Group, ej.grids.Sort);
+    
     var data = new ej.data.DataManager({
     url: 'https://services.odata.org/V4/Northwind/Northwind.svc/Orders/',
     adaptor: new ej.data.ODataV4Adaptor()
     });
     
     var grid = new ej.grids.Grid({
-    dataSource: data.slice(0, 20),
+    dataSource: data,
     height: 400,
     columns: [
             { field: 'OrderID', headerText: 'Order ID', textAlign: 'Right', width: 120, type: 'number' },
