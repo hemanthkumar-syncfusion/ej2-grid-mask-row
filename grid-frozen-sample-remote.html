@@ -25,7 +25,7 @@
         <div id="Grid"></div>        
 
 <script >
-    ej.grids.Grid.Inject(ej.grids.Sort, ej.grids.Filter);
+    ej.grids.Grid.Inject(ej.grids.Sort, ej.grids.Filter, ej.grids.Freeze);
     
     var data = new ej.data.DataManager({
     url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders/',
@@ -39,11 +39,13 @@
         allowFiltering: true,
         filterSettings: { type:'Excel' },
         allowSorting: true,
+        frozenRows: 3,
+        frozenColumns: 2,
         columns: [
-                { field: 'OrderID', headerText: 'Order ID', textAlign: 'Right', width: 120, type: 'number' },
+                { field: 'OrderID', headerText: 'Order ID', textAlign: 'Right', width: 120, type: 'number', freeze: 'Left' },
                 { field: 'CustomerID', width: 140, headerText: 'Customer ID', type: 'string' },
                 { field: 'Freight', headerText: 'Freight', textAlign: 'Right', width: 120, format: 'C' },
-                { field: 'OrderDate', headerText: 'Order Date', width: 140, format: 'yMd' }
+                { field: 'OrderDate', headerText: 'Order Date', width: 140, format: 'yMd', freeze: 'Right' }
         ],
 });
 grid.appendTo('#Grid');
