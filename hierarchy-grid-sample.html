@@ -26,7 +26,7 @@
         <div id="Grid"></div>        
 
 <script >
-    ej.grids.Grid.Inject(ej.grids.Group, ej.grids.Sort, ej.grids.Filter, ej.grids.Page);
+    ej.grids.Grid.Inject(ej.grids.Sort, ej.grids.Page);
     
     var dataManger = new ej.data.DataManager({
         url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders',
@@ -41,6 +41,7 @@
     var grid = new ej.grids.Grid({
         dataSource: employeeData,
         allowSorting: true,
+        loadingIndicator: { indicatorType: 'Shimmer' },
         columns: [
             { field: 'EmployeeID', headerText: 'Employee ID', textAlign: 'Right', width: 125 },
             { field: 'FirstName', headerText: 'Name', width: 125 },
@@ -52,6 +53,7 @@
             dataSource: dataManger,
             queryString: 'EmployeeID',
             allowPaging: true,
+            loadingIndicator: { indicatorType: 'Shimmer' },
             columns: [
                 { field: 'OrderID', headerText: 'Order ID', textAlign: 'Right', width: 120 },
                 { field: 'ShipCity', headerText: 'Ship City', width: 120 },
@@ -61,6 +63,7 @@
             childGrid: {
                 dataSource: dataManger2,
                 queryString: 'CustomerID',
+                loadingIndicator: { indicatorType: 'Shimmer' },
                 columns: [
                     { field: 'CustomerID', headerText: 'Customer ID', textAlign: 'Right', width: 75 },
                     { field: 'Phone', headerText: 'Phone', width: 100 },
