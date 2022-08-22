@@ -27,8 +27,9 @@
 
 <script >
     ej.grids.Grid.Inject(ej.grids.Page, ej.grids.Group, ej.grids.LazyLoadGroup);
+    createLazyLoadData();
     var grid = new ej.grids.Grid({
-    dataSource: data,
+    dataSource: lazyLoadData,
     allowPaging: true,
     allowGrouping: true,
     groupSettings: { enableLazyLoading: true, columns: ['ProductName', 'CustomerName'] },
