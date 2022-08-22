@@ -1,6 +1,6 @@
 var lazyLoadData = [];
 createLazyLoadData = function() {
-    if (window.lazyLoadData.length) {
+    if (lazyLoadData.length) {
         return;
     }
     var customerid = ['VINET', 'TOMSP', 'HANAR', 'VICTE', 'SUPRD', 'HANAR', 'CHOPS', 'RICSU', 'WELLI', 'HILAA', 'ERNSH', 'CENTC',
