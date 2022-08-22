@@ -26,7 +26,7 @@
         <div id="Grid"></div>        
 
 <script >
-    ej.grids.Grid.Inject(ej.grids.Group, ej.grids.Sort, ej.grids.Filter, ej.grids.Page);
+    ej.grids.Grid.Inject(ej.grids.Group, ej.grids.Sort, ej.grids.Filter, ej.grids.Page, ej.grids.Edit, ej.grids.Toolbar);
     
     var grid = new ej.grids.Grid({
         dataSource: data,
@@ -37,6 +37,8 @@
         allowSorting: true,
         allowGrouping: true,
         allowPaging: true,
+        editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true },
+        toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel', 'Search'],
         columns: [
                 { field: 'OrderID', headerText: 'Order ID', textAlign: 'Right', width: 120, type: 'number' },
                 { field: 'CustomerID', width: 140, headerText: 'Customer ID', type: 'string' },
