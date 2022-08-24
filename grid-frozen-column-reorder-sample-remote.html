@@ -25,7 +25,7 @@
         <div id="Grid"></div>        
 
 <script >
-    ej.grids.Grid.Inject(ej.grids.Sort, ej.grids.Filter, ej.grids.Freeze, ej.grids.Aggregate, ej.grids.Reorder);
+    ej.grids.Grid.Inject(ej.grids.Sort, ej.grids.Filter, ej.grids.Freeze, ej.grids.Reorder);
     
     var data = new ej.data.DataManager({
     url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders/',
@@ -33,7 +33,7 @@
     });
     
     var grid = new ej.grids.Grid({
-        dataSource: data,
+        dataSource: data.slice(0,20),
         height: 300,
         loadingIndicator: { indicatorType: 'Shimmer' },
         allowFiltering: true,
@@ -43,7 +43,7 @@
         frozenRows: 3,
         columns: [
                 { field: 'OrderID', headerText: 'Order ID', textAlign: 'Right', width: 120, type: 'number', freeze: 'Left' },
-                { field: 'CustomerID', width: 140, headerText: 'Customer ID', type: 'string' },
+                { field: 'CustomerID', width: 140, headerText: 'Customer ID', type: 'string', freeze: 'Left' },
                 { field: 'EmployeeID', width: 140, headerText: 'Employee ID', type: 'number' },
                 { field: 'Freight', headerText: 'Freight', textAlign: 'Right', width: 120, format: 'C' },
                 { field: 'ShipName', headerText: 'Ship Name', textAlign: 'Right', width: 120, type: 'string' },
