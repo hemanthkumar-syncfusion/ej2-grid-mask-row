@@ -28,12 +28,12 @@
     ej.grids.Grid.Inject(ej.grids.Sort, ej.grids.Filter, ej.grids.Freeze, ej.grids.Reorder);
     
     var data = new ej.data.DataManager({
-    url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders/',
+    url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders/?$top=20',
     adaptor: new ej.data.ODataAdaptor()
     });
     
     var grid = new ej.grids.Grid({
-        dataSource: data.slice(0,20),
+        dataSource: data.slice,
         height: 300,
         loadingIndicator: { indicatorType: 'Shimmer' },
         allowFiltering: true,
@@ -42,23 +42,14 @@
         allowReordering: true,
         frozenRows: 3,
         columns: [
-                { field: 'OrderID', headerText: 'Order ID', textAlign: 'Right', width: 120, type: 'number', freeze: 'Left' },
+                { field: 'OrderID', headerText: 'Order ID', textAlign: 'Right', width: 120, type: 'number', freeze: 'Left', isPrimaryKey: true },
                 { field: 'CustomerID', width: 140, headerText: 'Customer ID', type: 'string', freeze: 'Left' },
                 { field: 'EmployeeID', width: 140, headerText: 'Employee ID', type: 'number' },
                 { field: 'Freight', headerText: 'Freight', textAlign: 'Right', width: 120, format: 'C' },
                 { field: 'ShipName', headerText: 'Ship Name', textAlign: 'Right', width: 120, type: 'string' },
                 { field: 'ShipCountry', headerText: 'Ship Country', textAlign: 'Right', width: 120, type: 'string' },
                 { field: 'OrderDate', headerText: 'Order Date', width: 140, format: 'yMd', freeze: 'Right' }
-        ],
-        aggregates: [
-            {
-                     columns: [{
-                         type: 'Max',
-                         field: 'Freight',
-                         footerTemplate: 'Max: ${Max}'
-                     }]
-            },
-       ],
+        ]
 });
 grid.appendTo('#Grid');
 </script>
