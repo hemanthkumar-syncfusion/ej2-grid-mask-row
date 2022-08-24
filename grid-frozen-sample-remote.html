@@ -25,7 +25,7 @@
         <div id="Grid"></div>        
 
 <script >
-    ej.grids.Grid.Inject(ej.grids.Sort, ej.grids.Filter, ej.grids.Freeze, ej.grids.Aggregate, ej.grids.Reorder);
+    ej.grids.Grid.Inject(ej.grids.Sort, ej.grids.Filter, ej.grids.Freeze, ej.grids.Aggregate, ej.grids.Reorder, ej.grids.InfiniteScroll);
     
     var data = new ej.data.DataManager({
     url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders/',
@@ -40,7 +40,7 @@
         filterSettings: { type:'Excel' },
         allowSorting: true,
         frozenRows: 3,
-        frozenColumns: 2,
+        enableInfiniteScrolling: true,
         columns: [
                 { field: 'OrderID', headerText: 'Order ID', textAlign: 'Right', width: 120, type: 'number', freeze: 'Left' },
                 { field: 'CustomerID', width: 140, headerText: 'Customer ID', type: 'string' },
