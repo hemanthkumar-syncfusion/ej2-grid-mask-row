@@ -42,12 +42,13 @@
         <div id="Grid"></div>        
 
 <script >
-    ej.grids.Grid.Inject(ej.grids.Aggregate);
+    ej.grids.Grid.Inject(ej.grids.Aggregate, ej.grids.Sort);
     
     var grid = new ej.grids.Grid({
         dataSource: data.slice(0, 20),
         height: 400,
         loadingIndicator: { indicatorType: 'Shimmer' },
+        allowSorting: true,
         columns: [
                 { field: 'OrderID', headerText: 'Order ID', textAlign: 'Right', width: 120, type: 'number', isPrimaryKey: true },
                 { field: 'CustomerID', width: 140, headerText: 'Customer ID', type: 'string' },
