@@ -41,7 +41,7 @@
     </style>
 </head>
 <body>
-       <div class="e-mobile-layout" style="width: 500px; height: 600px; margin-left: 400px;">
+       <div class="e-mobile-layout" style="width: 400px; height: 600px; margin-left: 400px;">
         <div class="e-mobile-content">
             <div id="adaptivebrowser"></div>
         </div>
@@ -54,6 +54,7 @@
     dataSource: data.slice(0, 20),
     enableAdaptiveUI: true,
     loadingIndicator: { indicatorType: 'Shimmer' },
+    rowRenderingMode: 'Vertical',
     allowPaging: true,
     allowSorting: true,
     allowFiltering: true,
