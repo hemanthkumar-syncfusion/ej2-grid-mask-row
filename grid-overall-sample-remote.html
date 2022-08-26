@@ -62,10 +62,10 @@
         allowPaging: true,
         allowReordering: true,
         columns: [
-                { field: 'OrderID', headerText: 'Order ID', textAlign: 'Right', width: 120, type: 'number' },
+                { field: 'OrderID', headerText: 'Order ID', width: 120, type: 'number' },
                 { field: 'CustomerID', textAlign: 'Right', width: 140, headerText: 'Customer ID', type: 'string' },
                 { field: 'Freight', headerText: 'Freight', textAlign: 'Right', width: 120, format: 'C' },
-                { field: 'OrderDate', headerText: 'Order Date', width: 140, format: 'yMd', textAlign: 'Right' }
+                { field: 'OrderDate', headerText: 'Order Date', width: 140, format: 'yMd' }
         ],
 });
 grid.appendTo('#Grid');
