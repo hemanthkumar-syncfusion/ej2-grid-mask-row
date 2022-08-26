@@ -41,7 +41,7 @@
         <div id="Grid"></div>        
 
 <script >
-    ej.grids.Grid.Inject(ej.grids.Sort, ej.grids.Filter, ej.grids.Freeze, ej.grids.Reorder);
+    ej.grids.Grid.Inject(ej.grids.Sort, ej.grids.Filter, ej.grids.Freeze, ej.grids.Reorder, ej.grids.Aggregate);
     
     var data = new ej.data.DataManager({
     url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders/?$top=20',
@@ -59,7 +59,7 @@
         allowReordering: true,
         frozenRows: 3,
         columns: [
-                { field: 'OrderID', headerText: 'Order ID', textAlign: 'Right', width: 120, type: 'number', freeze: 'Left' },
+                { field: 'OrderID', headerText: 'Order ID', textAlign: 'Right', width: 150, type: 'number', freeze: 'Left' },
                 { field: 'CustomerID', width: 140, headerText: 'Customer ID', type: 'string', freeze: 'Left' },
                 { field: 'EmployeeID', width: 140, headerText: 'Employee ID', type: 'number' },
                 { field: 'Freight', headerText: 'Freight', textAlign: 'Right', width: 120, format: 'C' },
@@ -72,6 +72,22 @@
                 { field: 'RequiredDate', headerText: 'Required Date', width: 140, format: 'yMd' },
                 { field: 'OrderDate', headerText: 'Order Date', width: 140, format: 'yMd', freeze: 'Right' }
         ],
+        aggregates: [{
+        columns: [{
+            type: 'Sum',
+            field: 'Freight',
+            format: 'C2',
+            footerTemplate: 'Sum: ${Sum}'
+        }]
+    },
+    {
+        columns: [{
+            type: 'Max',
+            field: 'Freight',
+            format: 'C2',
+            footerTemplate: 'Max: ${Max}'
+        }]
+    }]
 });
 grid.appendTo('#Grid');
 </script>
