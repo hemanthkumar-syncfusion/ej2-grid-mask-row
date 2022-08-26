@@ -44,7 +44,7 @@
         <div id="Grid"></div>        
 
 <script >
-    ej.grids.Grid.Inject(ej.grids.Group, ej.grids.Sort, ej.grids.Filter, ej.grids.Page, ej.grids.Reorder);
+    ej.grids.Grid.Inject(ej.grids.Group, ej.grids.Sort, ej.grids.Filter, ej.grids.Page, ej.grids.Reorder, ej.grids.ColumnMenu);
     
     var data = new ej.data.DataManager({
     url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders/',
@@ -62,6 +62,7 @@
         allowPaging: true,
         allowReordering: true,
         rowHeight: 60,
+        showColumnMenu: true,
         columns: [
                 { field: 'OrderID', headerText: 'Order ID', width: 120, type: 'number' },
                 { field: 'CustomerID', textAlign: 'Right', width: 140, headerText: 'Customer ID', type: 'string' },
