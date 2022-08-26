@@ -41,7 +41,7 @@
         <div id="Grid"></div>        
 
 <script >
-    ej.grids.Grid.Inject(ej.grids.Sort, ej.grids.Filter, ej.grids.Freeze, ej.grids.Reorder, ej.grids.Aggregate);
+    ej.grids.Grid.Inject(ej.grids.Sort, ej.grids.Filter, ej.grids.Freeze, ej.grids.Reorder);
     
     var data = new ej.data.DataManager({
     url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders/?$top=20',
@@ -70,22 +70,6 @@
                 { field: 'ShippedDate', headerText: 'Shipped Date', width: 140, format: 'yMd', freeze: 'Right' },
                 { field: 'OrderDate', headerText: 'Order Date', width: 140, format: 'yMd', freeze: 'Right' }
         ],
-        aggregates: [{
-            columns: [{
-                type: 'Sum',
-                field: 'Freight',
-                format: 'C2',
-                footerTemplate: 'Sum: ${Sum}'
-            }]
-        },
-        {
-            columns: [{
-                type: 'Max',
-                field: 'Freight',
-                format: 'C2',
-                footerTemplate: 'Max: ${Max}'
-            }]
-        }]
 });
 grid.appendTo('#Grid');
 </script>
