@@ -18,14 +18,30 @@
           display: inline-block;
           height: 10px;
           width: 80%;
-      }
+        }
+        .e-grid .e-mask.e-mask-group-intent {
+          margin-left: 7px;
+          width: 16px;
+        }
+        .e-grid .e-mask.e-mask-detail-intent {
+          width: 16px;
+        }
+        .e-grid .e-mask.e-mask-checkbox-intent {
+          margin-left: 3px;
+          margin-right: 16px;
+          width: 20px;
+        }
+        .e-grid .e-mask.e-mask-drag-intent {
+          margin-left: 12px;
+          width: 12px;
+        }
     </style>
 </head>
 <body>
         <div id="Grid"></div>        
 
 <script >
-    ej.grids.Grid.Inject(ej.grids.Sort, ej.grids.Filter, ej.grids.Freeze, ej.grids.Reorder);
+    ej.grids.Grid.Inject(ej.grids.Sort, ej.grids.Filter, ej.grids.Freeze, ej.grids.Reorder, ej.grids.Aggregate);
     
     var data = new ej.data.DataManager({
     url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders/?$top=20',
@@ -47,10 +63,29 @@
                 { field: 'CustomerID', width: 140, headerText: 'Customer ID', type: 'string', freeze: 'Left' },
                 { field: 'EmployeeID', width: 140, headerText: 'Employee ID', type: 'number' },
                 { field: 'Freight', headerText: 'Freight', textAlign: 'Right', width: 120, format: 'C' },
+                { field: 'ShipVia', headerText: 'ShipVia', textAlign: 'Right', width: 120 },
+                { field: 'ShipPostalCode', headerText: 'ShipPostalCode', textAlign: 'Right', width: 120 },
                 { field: 'ShipName', headerText: 'Ship Name', textAlign: 'Right', width: 120, type: 'string' },
                 { field: 'ShipCountry', headerText: 'Ship Country', textAlign: 'Right', width: 120, type: 'string' },
+                { field: 'ShippedDate', headerText: 'Shipped Date', width: 140, format: 'yMd', freeze: 'Right' }
                 { field: 'OrderDate', headerText: 'Order Date', width: 140, format: 'yMd', freeze: 'Right' }
-        ]
+        ],
+        aggregates: [{
+            columns: [{
+                type: 'Sum',
+                field: 'Freight',
+                format: 'C2',
+                footerTemplate: 'Sum: ${Sum}'
+            }]
+        },
+        {
+            columns: [{
+                type: 'Max',
+                field: 'Freight',
+                format: 'C2',
+                footerTemplate: 'Max: ${Max}'
+            }]
+        }]
 });
 grid.appendTo('#Grid');
 </script>
