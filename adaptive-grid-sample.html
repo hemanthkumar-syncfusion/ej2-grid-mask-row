@@ -11,7 +11,7 @@
     
     <script src="ej2.min.js"></script>
     <link href="https://cdn.syncfusion.com/ej2/20.2.44/material.css" rel="stylesheet" />
-    
+    <script src="data.js" type="text/javascript"></script>
     <style>
       .e-grid .e-mask {
           background-color: rgba(0, 0, 0, 0.1);
@@ -41,45 +41,35 @@
     </style>
 </head>
 <body>
-        <div id='container' class="e-adaptive-demo e-bigger">
-        <div class="e-mobile-layout">
-            <div class="e-mobile-content">
-                <div id="Grid"></div>
-            </div>
+       <div class="e-mobile-layout" style="width: 500px; height: 600px; margin-left: 400px;">
+        <div class="e-mobile-content">
+            <div id="adaptivebrowser"></div>
         </div>
-    </div>     
+    </div>    
 
 <script >
     ej.grids.Grid.Inject(ej.grids.Page, ej.grids.Filter, ej.grids.Sort, ej.grids.Edit, ej.grids.Aggregate, ej.grids.Toolbar);
     
-    var data = new ej.data.DataManager({
-    url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders/',
-    adaptor: new ej.data.ODataAdaptor()
-    });
-    
-    
-var grid = new ej.grids.Grid({
-    dataSource: data,
+    var grid = new ej.grids.Grid({
+    dataSource: data.slice(0, 20),
     enableAdaptiveUI: true,
+    loadingIndicator: { indicatorType: 'Shimmer' },
     allowPaging: true,
     allowSorting: true,
     allowFiltering: true,
     filterSettings: { type: 'Excel' },
     toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel', 'Search'],
     editSettings: { allowAdding: true, allowEditing: true, allowDeleting: true, mode: 'Dialog' },
-    loadingIndicator: { indicatorType: 'Shimmer' },
-    rowRenderingMode: 'Vertical',
     height: '100%',
     load: function() {
         grid.adaptiveDlgTarget = document.getElementsByClassName('e-mobile-content')[0];
     },
     columns: [
-        { field: 'SNO', headerText: 'S NO', isPrimaryKey: true, width: 150, validationRules: { required: true, number: true } },
-        { field: 'Model', headerText: 'Model Name', width: 200, editType: "dropdownedit", validationRules: { required: true } },
-        { field: 'Developer', headerText: 'Developer', filter: { type : 'Menu' }, width: 200, validationRules: { required: true } },
-        { field: 'ReleaseDate', headerText: 'Released Date', type: 'date', editType: "datepickeredit", format: 'yMMM', width: 200 },
-        { field: 'AndroidVersion', headerText: 'Android Version', filter: { type : 'CheckBox' }, width: 200, validationRules: { required: true } }
-    ]
+            { field: 'OrderID', isPrimaryKey: true, headerText: 'Order ID', width: 120, validationRules: { required: true, number: true } },
+            { field: 'CustomerID', headerText: 'CustomerID', width: 150 },
+            { field: 'EmployeeID', headerText: 'Employee ID', width: 120 },
+            { field: "ShipCity", headerText: "Ship City", width: 250 },
+    ],
 });
 grid.appendTo('#adaptivebrowser');
 </script>
