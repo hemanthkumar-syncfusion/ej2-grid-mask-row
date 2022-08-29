@@ -42,8 +42,30 @@
           width: 12px;
         }
       .e-grid .e-altrow {
-        background-color: #fafafa;
-      }
+            background-color: #fafafa;
+          }
+      .e-grid .e-skeleton {
+          display: inline-block;
+          position: relative;
+          overflow: hidden;
+          border: none;
+        }
+        .e-grid .e-skeleton.e-shimmer-wave::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          width: calc(200% + 200px);
+          animation: e-shimmer-wave 1.5s infinite;
+          animation-timing-function: ease-in-out;
+          background-image: linear-gradient(90deg, transparent calc(50% - 100px), rgba(255, 255, 255, 0.5) 50%, transparent calc(50% + 100px));
+        }
+        @keyframes e-shimmer-wave {
+          to {
+            transform: translateX(calc(50% + 100px));
+          }
+        }
     </style>
 </head>
 <body>
