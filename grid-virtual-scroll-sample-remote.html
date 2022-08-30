@@ -14,8 +14,6 @@
     
     <style>
       .e-grid .e-mask {
-          background-color: rgba(0, 0, 0, 0.1);
-          display: inline-block;
           height: 10px;
           width: 80%;
         }
@@ -41,14 +39,15 @@
           margin-left: 12px;
           width: 12px;
         }
-      .e-grid .e-altrow {
-            background-color: #fafafa;
-          }
-      .e-grid .e-skeleton {
+        .e-grid .e-skeleton {
           display: inline-block;
           position: relative;
           overflow: hidden;
           border: none;
+        }
+        .e-grid .e-skeleton.e-skeleton-text {
+          background-color: #f3f2f1;
+          border-radius: 0;
         }
         .e-grid .e-skeleton.e-shimmer-wave::after {
           content: "";
